@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">easy_study</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_username">Username must be >5 characters</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_role">Role</string>
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
+    <string name="invalid_role">Choose role</string>
+    <string name="register_failed">Registration failed</string>
+    <string name="action_go_sign_up">Register</string>
+    <string name="get_groups_failed">Failed to get group list</string>
+    <string name="get_group_details_failed">Failed to get group details</string>
+    <string name="attendance">Attendance</string>
+    <string name="mark">Mark</string>
+    <string name="attendance_yes">Yes</string>
+    <string name="attendance_no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="apply">Apply</string>
+
+</resources>

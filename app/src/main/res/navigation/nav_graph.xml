@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.easy_study.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_studentGroupFragment"
+            app:destination="@id/studentGroupFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentGroupFragment"
+        android:name="com.example.easy_study.ui.student_group.StudentGroupFragment"
+        android:label="fragment_student_group"
+        tools:layout="@layout/fragment_student_group" >
+        <action
+            android:id="@+id/action_studentGroupFragment_to_studentGroupDetailsFragment"
+            app:destination="@id/studentGroupDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.easy_study.ui.registration.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_studentGroupFragment"
+            app:destination="@id/studentGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentGroupDetailsFragment"
+        android:name="com.example.easy_study.ui.student_group_details.StudentGroupDetailsFragment"
+        android:label="StudentGroupDetailsFragment" >
+        <action
+            android:id="@+id/action_studentGroupDetailsFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.easy_study.ui.lesson.LessonFragment"
+        android:label="fragment_lesson"
+        tools:layout="@layout/fragment_lesson" />
+</navigation>
