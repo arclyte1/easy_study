@@ -2,6 +2,9 @@ package com.example.easy_study.data
 
 import com.example.easy_study.data.model.Group
 import com.example.easy_study.data.model.Lesson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.IOException
 
 class GroupRepository(private val dataSource: GroupDataSource) {
@@ -49,6 +52,37 @@ class GroupRepository(private val dataSource: GroupDataSource) {
 
     fun updateCurrentGroup() {
         getStudentGroupDetails(currentGroup!!.id)
+    }
+
+    fun addGroup(title: String, subject: String): Result<List<Group>> {
+        val result = dataSource.createGroup(loginRepository.user!!, title, subject)
+        return if (result is Result.Success) {
+            val groupsResult = getGroups()
+            if (groupsResult is Result.Success)
+                setGroups(groupsResult.data)
+            groupsResult
+        } else
+            Result.Error(IOException("Failed to create group"))
+    }
+
+    fun addLesson(title: String): Result<List<Lesson>> {
+        val result = dataSource.createLesson(loginRepository.user!!, title, currentGroup!!.id)
+        return if (result is Result.Success) {
+            dataSource.getStudentGroupDetails(loginRepository.user!!, currentGroup!!.id)
+        } else
+            Result.Error(IOException("Failed to create lesson"))
+    }
+
+    fun addStudent(email: String): Result<Unit> {
+        val result = dataSource.addStudent(loginRepository.user!!, email, currentGroup!!.id)
+        return if (result is Result.Success) {
+            currentGroup = result.data
+            CoroutineScope(Dispatchers.IO).launch {
+                getGroups()
+            }
+            Result.Success(Unit)
+        } else
+            Result.Error(IOException("Failed to add student"))
     }
 
     companion object {

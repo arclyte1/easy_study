@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val baseUrl = "http://10.0.2.2:8000/api/v1/" // TODO change host
+    private const val baseUrl = "https://easy-study-api.herokuapp.com/api/v1/"
 
     private val retrofitClient: Retrofit.Builder by lazy {
         Retrofit.Builder()

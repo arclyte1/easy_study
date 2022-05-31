@@ -1,13 +1,10 @@
 package com.example.easy_study.data
 
-import android.util.Log
 import com.example.easy_study.data.model.Group
 import com.example.easy_study.data.model.LoggedInUser
 import com.example.easy_study.data.model.Lesson
-import com.example.easy_study.data.network.DeleteMarkRequest
-import com.example.easy_study.data.network.RetrofitClient
-import com.example.easy_study.data.network.SetAttendanceRequest
-import com.example.easy_study.data.network.SetMarkRequest
+import com.example.easy_study.data.network.*
+import com.example.easy_study.data.network.request.*
 import java.io.IOException
 
 class GroupDataSource {
@@ -44,11 +41,34 @@ class GroupDataSource {
 
     fun setAttendance(user: LoggedInUser, lessonId: Long, studentId: Long, attendance: Boolean): Result<Unit> {
         val request = SetAttendanceRequest(studentId, attendance)
-        Log.d("request", request.attendance.toString())
         val response = RetrofitClient.apiInterface.setAttendance("Bearer ${user.access}", lessonId, request).execute()
         return if (response.isSuccessful) {
             Result.Success(response.body()!!)
         } else Result.Error(IOException("Set attendance error"))
+    }
+
+    fun createGroup(user: LoggedInUser, title: String, subject: String): Result<Group> {
+        val request = CreateGroupRequest(title, subject)
+        val response = RetrofitClient.apiInterface.createGroup("Bearer ${user.access}", request).execute()
+        return if (response.isSuccessful) {
+            Result.Success(response.body()!!)
+        } else Result.Error(IOException("Create group error"))
+    }
+
+    fun createLesson(user: LoggedInUser, title: String, groupId: Long): Result<Lesson> {
+        val request = CreateLessonRequest(title)
+        val response = RetrofitClient.apiInterface.createLesson("Bearer ${user.access}", groupId, request).execute()
+        return if (response.isSuccessful) {
+            Result.Success(response.body()!!)
+        } else Result.Error(IOException("Create lesson error"))
+    }
+
+    fun addStudent(user: LoggedInUser, email: String, groupId: Long): Result<Group> {
+        val request = AddStudentRequest(email)
+        val response = RetrofitClient.apiInterface.addStudent("Bearer ${user.access}", groupId, request).execute()
+        return if (response.isSuccessful) {
+            Result.Success(response.body()!!)
+        } else Result.Error(IOException("Create lesson error"))
     }
 
 }

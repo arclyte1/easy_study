@@ -3,12 +3,7 @@ package com.example.easy_study.ui.lesson
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.easy_study.R
 import com.example.easy_study.data.GroupRepository
-import com.example.easy_study.data.Result
-import com.example.easy_study.data.model.Lesson
-import com.example.easy_study.data.model.User
-import com.example.easy_study.ui.student_group.GetGroupsResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,6 +54,13 @@ class LessonViewModel : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             groupRepository.setAttendance(user.id, attendance)
             updateStudents()
+        }
+    }
+
+    fun addStudent(email: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            groupRepository.addStudent(email)
+            getStudentList()
         }
     }
 

@@ -1,8 +1,5 @@
 package com.example.easy_study.data.model
 
-/**
- * Data class that captures user information for logged in users retrieved from LoginRepository
- */
 data class LoggedInUser(
     val userId: Long,
     val email: String,

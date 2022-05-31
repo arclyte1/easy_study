@@ -6,5 +6,4 @@ data class Group(
     val subject_title: String,
     val students: List<User>,
     val teachers: List<User>,
-    // TODO lessons
 )

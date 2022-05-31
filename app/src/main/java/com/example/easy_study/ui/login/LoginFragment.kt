@@ -37,6 +37,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding = FragmentLoginBinding.bind(view)
+        binding.login.isEnabled = true
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner,
             Observer { loginFormState ->
@@ -108,11 +109,6 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
         }
 
-        // TODO remove
-        loginViewModel.login(
-            "asd@asd.asd",
-            "asd"
-        )
     }
 
     private fun updateUiWithUser(user: LoggedInUser) {

@@ -1,5 +1,6 @@
 package com.example.easy_study.data.model
 
+import android.content.Context
 import com.example.easy_study.R
 
 object UserRole {
@@ -9,15 +10,15 @@ object UserRole {
         TEACHER;
     }
 
-    fun getValue(value: String): Role = when (value) {
+    fun getValue(shortValue: String): Role = when (shortValue) {
         "ST" -> Role.STUDENT
         "TR" -> Role.TEACHER
         else -> Role.STUDENT
     }
 
-    fun getValue(value: Int): Role = when (value) {
-        R.string.student -> Role.STUDENT
-        R.string.teacher -> Role.TEACHER
+    fun getValue(context: Context, value: String): Role = when (value) {
+        context.resources.getString(R.string.student) -> Role.STUDENT
+        context.resources.getString(R.string.teacher) -> Role.TEACHER
         else -> Role.STUDENT
     }
 

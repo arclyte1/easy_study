@@ -55,6 +55,12 @@ class LessonAdapter(
 
     override fun getItemCount(): Int = currentList.size
 
+    override fun submitList(list: List<LessonUser>?) {
+        val newList = list!!.toMutableList()
+        newList.sortBy { it.name }
+        super.submitList(newList)
+    }
+
     fun setMark(user: LessonUser, mark: Double?) {
         val item = currentList.find {
             it.id == user.id

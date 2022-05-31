@@ -19,9 +19,9 @@
     </fragment>
     <fragment
         android:id="@+id/studentGroupFragment"
-        android:name="com.example.easy_study.ui.student_group.StudentGroupFragment"
+        android:name="com.example.easy_study.ui.group.GroupFragment"
         android:label="fragment_student_group"
-        tools:layout="@layout/fragment_student_group" >
+        tools:layout="@layout/fragment_group" >
         <action
             android:id="@+id/action_studentGroupFragment_to_studentGroupDetailsFragment"
             app:destination="@id/studentGroupDetailsFragment" />
@@ -37,8 +37,9 @@
     </fragment>
     <fragment
         android:id="@+id/studentGroupDetailsFragment"
-        android:name="com.example.easy_study.ui.student_group_details.StudentGroupDetailsFragment"
-        android:label="StudentGroupDetailsFragment" >
+        android:name="com.example.easy_study.ui.group_details.GroupDetailsFragment"
+        android:label="GroupDetailsFragment"
+        tools:layout="@layout/fragment_group_details">
         <action
             android:id="@+id/action_studentGroupDetailsFragment_to_lessonFragment"
             app:destination="@id/lessonFragment" />

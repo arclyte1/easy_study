@@ -2,12 +2,9 @@ package com.example.easy_study.data
 
 import com.example.easy_study.data.model.LoggedInUser
 import com.example.easy_study.data.model.UserRole
-import com.example.easy_study.data.network.LoginRequest
-import com.example.easy_study.data.network.RegistrationRequest
+import com.example.easy_study.data.network.request.LoginRequest
+import com.example.easy_study.data.network.request.RegistrationRequest
 import com.example.easy_study.data.network.RetrofitClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.IOException
 
 /**

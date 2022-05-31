@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Easy Study</string>
+    <string name="prompt_email">Эл. почта</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="action_sign_up">Зарегестрироваться</string>
+    <string name="action_sign_in_short">Войти</string>
+    <string name="welcome">"Добро пожаловать!"</string>
+    <string name="invalid_email">Неверная эл. почта</string>
+    <string name="invalid_username">Имя пользователя должно быть более 5 символов</string>
+    <string name="invalid_password">Пароль должен быть более 5 символов</string>
+    <string name="login_failed">"Неудачный вход"</string>
+    <string name="prompt_username">Имя</string>
+    <string name="prompt_role">Роль</string>
+    <string name="student">Студент</string>
+    <string name="teacher">Преподаватель</string>
+    <string name="invalid_role">Выберете роль</string>
+    <string name="register_failed">Неудачная регистрация</string>
+    <string name="action_go_sign_up">Зарегестрироваться</string>
+    <string name="get_groups_failed">Неудачное получение списка групп</string>
+    <string name="get_group_details_failed">Неудачное получение списка занятий</string>
+    <string name="attendance">Посещение</string>
+    <string name="mark">Оценка</string>
+    <string name="attendance_yes">Да</string>
+    <string name="attendance_no">Нет</string>
+    <string name="change_mark">Изменить оценку</string>
+    <string name="cancel">Отмена</string>
+    <string name="apply">Применить</string>
+    <string name="title">Название</string>
+    <string name="subject">Предмет</string>
+    <string name="add_group">Добавить группу</string>
+    <string name="add">Добавить</string>
+    <string name="fields_cant_be_empty">Поля не могут быть пустыми</string>
+    <string name="pick_date">Выбрать дату</string>
+    <string name="add_lesson">Добавить занятие</string>
+    <string name="add_user">Добавить пользователя</string>
+    <string name="add_student">Добавить студента</string>
+    <string name="no_groups">Нет групп</string>
+    <string name="no_lessons">Нет занятий</string>
+    <string name="no_students">Нет студентов</string>
+</resources>

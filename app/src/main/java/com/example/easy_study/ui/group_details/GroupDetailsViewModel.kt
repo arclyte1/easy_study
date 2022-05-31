@@ -1,4 +1,4 @@
-package com.example.easy_study.ui.student_group_details
+package com.example.easy_study.ui.group_details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class StudentGroupDetailsViewModel() : ViewModel() {
+class GroupDetailsViewModel() : ViewModel() {
 
     private val groupRepository = GroupRepository.instance
 
@@ -37,6 +37,14 @@ class StudentGroupDetailsViewModel() : ViewModel() {
 
     fun setCurrentLesson(lesson: Lesson) {
         groupRepository.currentLesson = lesson
+    }
+
+    fun addLesson(title: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val result = groupRepository.addLesson(title)
+            if (result is Result.Success)
+                _getLessonsResult.postValue(GetGroupDetailsResult(success = result.data))
+        }
     }
 
 }

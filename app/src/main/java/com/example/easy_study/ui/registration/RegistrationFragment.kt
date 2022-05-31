@@ -112,7 +112,7 @@ class RegistrationFragment : Fragment() {
             viewModel.register(
                 email = binding.email.editText?.text.toString(),
                 username = binding.username.editText?.text.toString(),
-                role = UserRole.getValue(binding.role.editText!!.text.toString()),
+                role = UserRole.getValue(requireContext(), binding.role.editText!!.text.toString()),
                 password = binding.password.editText?.text.toString()
             )
         }

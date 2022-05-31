@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">easy_study</string>
+    <string name="app_name">Easy Study</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
@@ -23,7 +23,20 @@
     <string name="mark">Mark</string>
     <string name="attendance_yes">Yes</string>
     <string name="attendance_no">No</string>
+    <string name="change_mark">Change mark</string>
     <string name="cancel">Cancel</string>
     <string name="apply">Apply</string>
+    <string name="title">Title</string>
+    <string name="subject">Subject</string>
+    <string name="add_group">Add group</string>
+    <string name="add">Add</string>
+    <string name="fields_cant_be_empty">Fields can\'t be empty</string>
+    <string name="pick_date">Pick date</string>
+    <string name="add_lesson">Add lesson</string>
+    <string name="add_user">Add user</string>
+    <string name="add_student">Add student</string>
+    <string name="no_groups">No groups</string>
+    <string name="no_lessons">No lessons</string>
+    <string name="no_students">No students</string>
 
 </resources>

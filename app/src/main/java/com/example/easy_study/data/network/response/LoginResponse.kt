@@ -1,4 +1,4 @@
-package com.example.easy_study.data.network
+package com.example.easy_study.data.network.response
 
 import com.example.easy_study.data.model.Group
 import com.google.gson.annotations.SerializedName
