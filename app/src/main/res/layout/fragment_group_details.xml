@@ -14,7 +14,9 @@
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
         tools:context=".ui.group_details.GroupDetailsFragment"
-        tools:listitem="@layout/fragment_group_details_item" />
+        tools:listitem="@layout/fragment_group_details_item"
+        android:clipToPadding="false"
+        android:paddingBottom="64dp"/>
 
     <ProgressBar
         android:id="@+id/loading"

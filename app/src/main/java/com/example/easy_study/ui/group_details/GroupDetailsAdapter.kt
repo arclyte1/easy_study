@@ -54,7 +54,7 @@ class GroupDetailsAdapter(
         holder.detailsLayout.visibility = View.GONE
         holder.rootLayout.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
         // TODO date
-        holder.mark.text = item.mark.toString()
+        holder.mark.text = if (item.mark != null) item.mark.toString() else context.getString(R.string.attendance_no)
         holder.attendance.text = if (item.attendance == true)
             context.getString(R.string.attendance_yes) else context.getString(R.string.attendance_no)
         holder.itemView.setOnClickListener {

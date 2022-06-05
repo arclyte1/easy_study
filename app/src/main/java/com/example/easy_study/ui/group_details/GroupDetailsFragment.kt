@@ -72,7 +72,7 @@ class GroupDetailsFragment : Fragment() {
                 .inflate(R.layout.add_lesson_dialog, null, false)
             val vBinding = AddLessonDialogBinding.bind(v)
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle(resources.getString(R.string.add_group))
+                .setTitle(resources.getString(R.string.add_lesson))
                 .setView(v)
                 .setNegativeButton(resources.getString(R.string.cancel)) { dialog, which ->
                     // Respond to negative button press

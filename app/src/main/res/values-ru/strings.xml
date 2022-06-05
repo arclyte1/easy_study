@@ -4,7 +4,7 @@
     <string name="prompt_email">Эл. почта</string>
     <string name="prompt_password">Пароль</string>
     <string name="action_sign_in">Войти</string>
-    <string name="action_sign_up">Зарегестрироваться</string>
+    <string name="action_sign_up">Зарегистрироваться</string>
     <string name="action_sign_in_short">Войти</string>
     <string name="welcome">"Добро пожаловать!"</string>
     <string name="invalid_email">Неверная эл. почта</string>
@@ -17,7 +17,7 @@
     <string name="teacher">Преподаватель</string>
     <string name="invalid_role">Выберете роль</string>
     <string name="register_failed">Неудачная регистрация</string>
-    <string name="action_go_sign_up">Зарегестрироваться</string>
+    <string name="action_go_sign_up">Зарегистрироваться</string>
     <string name="get_groups_failed">Неудачное получение списка групп</string>
     <string name="get_group_details_failed">Неудачное получение списка занятий</string>
     <string name="attendance">Посещение</string>
