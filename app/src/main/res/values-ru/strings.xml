@@ -39,4 +39,11 @@
     <string name="no_groups">Нет групп</string>
     <string name="no_lessons">Нет занятий</string>
     <string name="no_students">Нет студентов</string>
+    <string name="show_details">Подробности</string>
+    <string name="logout">Выйти</string>
+    <string name="teachers">Преподаватели</string>
+    <string name="students">Студенты</string>
+    <string name="lesson">Занятие</string>
+    <string name="add_teacher">Добавить преподавателя</string>
+    <string name="my_groups">Мои группы</string>
 </resources>

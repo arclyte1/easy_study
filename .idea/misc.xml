@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/drawable/ic_more.xml" value="0.187" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/add_choose_user_lesson_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/add_group_dialog.xml" value="0.1778115501519757" />
@@ -17,10 +18,18 @@
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_group_details.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_group_details_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_group_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_group_list.xml" value="0.3546195652173913" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_group_list_item.xml" value="0.3546195652173913" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson_details.xml" value="0.3605072463768116" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson_details_item.xml" value="0.3546195652173913" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson_item.xml" value="0.365625" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson_list.xml" value="0.3546195652173913" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_lesson_list_item.xml" value="0.3546195652173913" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_registration.xml" value="0.25" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_student_details.xml" value="0.1" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_student_details_item.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_student_group.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_student_group_details.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_student_group_details_item.xml" value="0.1778115501519757" />
@@ -29,6 +38,8 @@
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/fragment_teacher_group.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/registration_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/layout/role_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/menu/group_list_menu.xml" value="0.2953703703703704" />
+        <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/menu/lesson_list_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Konstantin/Desktop/easy_study/app/src/main/res/xml/network_security_config.xml" value="0.15307971014492755" />
       </map>
     </option>

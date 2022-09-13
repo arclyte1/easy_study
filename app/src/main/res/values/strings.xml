@@ -38,5 +38,12 @@
     <string name="no_groups">No groups</string>
     <string name="no_lessons">No lessons</string>
     <string name="no_students">No students</string>
+    <string name="show_details">Show details</string>
+    <string name="logout">Logout</string>
+    <string name="teachers">Teachers</string>
+    <string name="students">Students</string>
+    <string name="lesson">Lesson</string>
+    <string name="add_teacher">Add teacher</string>
+    <string name="my_groups">My groups</string>
 
 </resources>
