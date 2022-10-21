@@ -34,12 +34,15 @@ jobs:
       uses: gradle/gradle-build-action@v2.3.2
       with:
         arguments: assembleRelease
+    
+    - name: Extract apk
+      run: mv app/build/outputs/apk/release/app-release-unsigned.apk EasyStudy.apk
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         name: EasyStudy
         body: Cringe
-        files: ${{ steps.sign_app.outputs.signedReleaseFile }}
+        files: EasyStudy.apk
         draft: true
         prerelease: false
