@@ -1,4 +1,6 @@
 # Easy Study
+[![Android CI](https://github.com/EnergoStalin/easy_study/actions/workflows/android.yml/badge.svg?branch=master&event=push)](https://github.com/EnergoStalin/easy_study/actions/workflows/android.yml)
+
 Приложение для удобного ведения журнала оценок и посещений для студентов и преподавателей
 
 <img src="https://sun9-83.userapi.com/impg/VA5AlEKxTb6K2RZMh5kyJwk1q8voE22sQZcBXA/8X8aHBJDwwo.jpg?size=720x1600&quality=95&sign=9e1ecb71ff86c6c6ba0581931b0ec85a&type=album" alt="drawing" width="250"/>
