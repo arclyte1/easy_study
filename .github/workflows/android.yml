@@ -33,20 +33,13 @@ jobs:
     - name: Build app
       uses: gradle/gradle-build-action@v2.3.2
       with:
-        arguments: assemble
-      
-    - name: Clean up build artifact
-      run: |
-        ls build/kotlin
-        set -e
-        mv app/build/outputs/apk/release/app-release-unsigned.apk EasyStudy.apk
+        arguments: assembleRelease
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         name: EasyStudy
         body: Cringe
-        files: |
-          EasyStudy.apk
+        files: ${{ steps.sign_app.outputs.signedReleaseFile }}
         draft: true
         prerelease: false
