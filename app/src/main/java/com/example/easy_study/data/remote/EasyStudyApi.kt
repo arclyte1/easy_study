@@ -44,7 +44,7 @@ interface EasyStudyApi {
         @Query("email") email: String
     ): List<Lesson>
 
-    @POST("lessons/{lessonId}/marks/{}")
+    @POST("lessons/{lessonId}/marks/")
     suspend fun setMark(
         @Header("Authorization") token: String,
         @Path("lessonId") lessonId: Long,

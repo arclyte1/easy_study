@@ -2,7 +2,7 @@ package com.example.easy_study.common
 
 object Constants {
 
-    const val BASE_URL = "https://easy-study-api.herokuapp.com/api/v1/"
+    const val BASE_URL = "https://arclyte1.pythonanywhere.com/api/v1/"
 
     const val ROLE_FIELD = "role"
 
