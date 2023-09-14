@@ -6,6 +6,8 @@ import com.example.easy_study.data.repository.GroupRepositoryImpl
 import com.example.easy_study.data.repository.LoginRepositoryImpl
 import com.example.easy_study.domain.repository.GroupRepository
 import com.example.easy_study.domain.repository.LoginRepository
+import com.example.easy_study.presentation.navigation.AppNavigator
+import com.example.easy_study.presentation.navigation.AppNavigatorImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,4 +39,7 @@ object AppModule {
     fun provideGroupRepository(api: EasyStudyApi, loginRepository: LoginRepository): GroupRepository =
         GroupRepositoryImpl(api, loginRepository)
 
+    @Provides
+    @Singleton
+    fun provideAppNavigator(appNavigatorImpl: AppNavigatorImpl): AppNavigator = appNavigatorImpl
 }

@@ -6,8 +6,7 @@ data class LoggedInUser(
     val refresh: String,
     val access: String,
     val name: String,
-    val role: UserRole.Role,
+    val role: UserRole,
     val studying_groups: List<Group>,
     val teaching_groups: List<Group>,
-    // TODO marks and attendances
 )

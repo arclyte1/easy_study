@@ -7,7 +7,8 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome!"</string>
     <string name="invalid_email">Not a valid email</string>
-    <string name="invalid_username">Username must be >5 characters</string>
+    <string name="invalid_username_length">Username must be >5 characters</string>
+    <string name="invalid_username_content">Allowed symbols: a–z, 0–9, _</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_username">Username</string>
@@ -16,7 +17,8 @@
     <string name="teacher">Teacher</string>
     <string name="invalid_role">Choose role</string>
     <string name="register_failed">Registration failed</string>
-    <string name="action_go_sign_up">Register</string>
+    <string name="action_go_sign_up">Don\'t have an account yet?  Sign Up</string>
+    <string name="action_go_sign_in">Sign In</string>
     <string name="get_groups_failed">Failed to get group list</string>
     <string name="get_group_details_failed">Failed to get group details</string>
     <string name="attendance">Attendance</string>
@@ -45,5 +47,6 @@
     <string name="lesson">Lesson</string>
     <string name="add_teacher">Add teacher</string>
     <string name="my_groups">My groups</string>
+    <string name="empty_string" />
 
 </resources>

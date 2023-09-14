@@ -8,7 +8,8 @@
     <string name="action_sign_in_short">Войти</string>
     <string name="welcome">"Добро пожаловать!"</string>
     <string name="invalid_email">Неверная эл. почта</string>
-    <string name="invalid_username">Имя пользователя должно быть более 5 символов</string>
+    <string name="invalid_username_length">Минимальная длина 6 символов</string>
+    <string name="invalid_username_content">Разрешенные символы: a–z, 0–9, _</string>
     <string name="invalid_password">Пароль должен быть более 5 символов</string>
     <string name="login_failed">"Неудачный вход"</string>
     <string name="prompt_username">Имя</string>
@@ -17,7 +18,8 @@
     <string name="teacher">Преподаватель</string>
     <string name="invalid_role">Выберете роль</string>
     <string name="register_failed">Неудачная регистрация</string>
-    <string name="action_go_sign_up">Зарегистрироваться</string>
+    <string name="action_go_sign_up">Нет аккаунта? Зарегистрироваться</string>
+    <string name="action_go_sign_in">Войти</string>
     <string name="get_groups_failed">Неудачное получение списка групп</string>
     <string name="get_group_details_failed">Неудачное получение списка занятий</string>
     <string name="attendance">Посещение</string>
@@ -46,4 +48,5 @@
     <string name="lesson">Занятие</string>
     <string name="add_teacher">Добавить преподавателя</string>
     <string name="my_groups">Мои группы</string>
+    <string name="empty_string" />
 </resources>

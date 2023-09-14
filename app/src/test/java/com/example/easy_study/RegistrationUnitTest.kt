@@ -36,7 +36,7 @@ class RegistrationUnitTest {
             username = "test",
             email = email,
             password = "test_pass",
-            role = UserRole.Role.STUDENT
+            role = UserRole.STUDENT
         ).collect {
             assert(it !is Resource.Error)
             if (it is Resource.Success) {
@@ -52,7 +52,7 @@ class RegistrationUnitTest {
             username = "test",
             email = email,
             password = "test_pass",
-            role = UserRole.Role.STUDENT
+            role = UserRole.STUDENT
         ).collect {
             assert(it is Resource.Loading || it is Resource.Error)
         }

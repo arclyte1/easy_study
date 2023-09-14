@@ -13,7 +13,7 @@ class RegistrationUseCase @Inject constructor(
 ){
     operator fun invoke(email: String,
                         username: String,
-                        role: UserRole.Role,
+                        role: UserRole,
                         password: String): Flow<Resource<LoggedInUser>> = flow {
         try {
             emit(Resource.Loading())

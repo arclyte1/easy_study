@@ -18,7 +18,6 @@ class LoginRepositoryImpl @Inject constructor (
     private val api: EasyStudyApi
 ): LoginRepository {
 
-    // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
         private set
 
@@ -26,8 +25,6 @@ class LoginRepositoryImpl @Inject constructor (
         get() = user != null
 
     init {
-        // If user credentials will be cached in local storage, it is recommended it be encrypted
-        // @see https://developer.android.com/training/articles/keystore
         user = null
     }
 
@@ -52,7 +49,7 @@ class LoginRepositoryImpl @Inject constructor (
         return user
     }
 
-    override suspend fun register(email: String, username: String, role: UserRole.Role, password: String): LoggedInUser {
+    override suspend fun register(email: String, username: String, role: UserRole, password: String): LoggedInUser {
         val request = RegistrationRequest(email, username, UserRole.toString(role), password)
         val registrationResponse = api.register(request)
         val user =  LoggedInUser(
@@ -73,7 +70,7 @@ class LoginRepositoryImpl @Inject constructor (
         return user
     }
 
-    private fun setLoggedInUser(loggedInUser: LoggedInUser) { // TODO save user credentials
+    private fun setLoggedInUser(loggedInUser: LoggedInUser) {
         this.user = loggedInUser
     }
 }

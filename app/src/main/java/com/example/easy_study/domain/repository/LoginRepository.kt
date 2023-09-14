@@ -10,7 +10,7 @@ interface LoginRepository {
 
     suspend fun register(email: String,
                  username: String,
-                 role: UserRole.Role,
+                 role: UserRole,
                  password: String): LoggedInUser
 
     suspend fun getLoggedInUser(): LoggedInUser?
