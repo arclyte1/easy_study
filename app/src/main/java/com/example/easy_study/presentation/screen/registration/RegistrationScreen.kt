@@ -1,7 +1,6 @@
 package com.example.easy_study.presentation.screen.registration
 
 import android.util.Patterns
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,13 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,15 +29,14 @@ import com.example.easy_study.common.ValidatingResult
 import com.example.easy_study.common.conditional
 import com.example.easy_study.common.drawAnimatedBorder
 import com.example.easy_study.domain.model.UserRole
+import com.example.easy_study.presentation.screen.registration.components.SigningDropdownMenu
 import com.example.easy_study.presentation.shared.SigningTextField
 import com.example.easy_study.presentation.ui.theme.EasyStudyTheme
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrationScreen(
     screenState: RegistrationState,
@@ -62,7 +54,6 @@ fun RegistrationScreen(
     var isPasswordValid by remember { mutableStateOf<ValidatingResult>(ValidatingResult.Valid) }
     var canSignUp by remember { mutableStateOf(false) }
     val roleOptions = UserRole.values().toList()
-    var isExpandedRoleMenu by remember { mutableStateOf(false) }
     var selectedRole by remember { mutableStateOf<UserRole?>(null) }
     val animationColors = listOf(
         MaterialTheme.colorScheme.primary,
@@ -77,8 +68,8 @@ fun RegistrationScreen(
         } && selectedRole != null && email.isNotEmpty()
     }
 
-
     Column(modifier = Modifier.fillMaxSize()) {
+
         SigningTextField(
             value = email,
             onValueChange = {
@@ -94,6 +85,7 @@ fun RegistrationScreen(
                 .padding(start = 16.dp, end = 16.dp, top = 32.dp),
             readOnly = screenState.isSigningUp
         )
+
         SigningTextField(
             value = username,
             onValueChange = {
@@ -109,6 +101,7 @@ fun RegistrationScreen(
                 .padding(start = 16.dp, end = 16.dp, top = 8.dp),
             readOnly = screenState.isSigningUp
         )
+
         SigningTextField(
             value = password,
             onValueChange = {
@@ -125,53 +118,22 @@ fun RegistrationScreen(
                 .padding(start = 16.dp, end = 16.dp, top = 8.dp),
             readOnly = screenState.isSigningUp
         )
-        ExposedDropdownMenuBox(
-            expanded = isExpandedRoleMenu,
-            onExpandedChange = {
-                isExpandedRoleMenu = it
+
+        SigningDropdownMenu(
+            options = roleOptions.map { stringResource(UserRole.getRes(it)) },
+            optionSelected = { index ->
+                selectedRole = roleOptions[index]
+                updateCanSignUp()
+                false
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 8.dp)
-        ) {
-            SigningTextField(
-                value = selectedRole?.let { stringResource(id = UserRole.getRes(it)) } ?: "" ,
-                label = stringResource(id = R.string.prompt_role),
-                onValueChange = {},
-                modifier = Modifier
-                    .conditional(!screenState.isSigningUp) {
-                        menuAnchor()
-                    }
-                    .fillMaxWidth(),
-                readOnly = true,
-                trailingIcon = {
-                    ExposedDropdownMenuDefaults.TrailingIcon(
-                        expanded = isExpandedRoleMenu
-                    )
-                },
-            )
-            DropdownMenu(
-                expanded = isExpandedRoleMenu,
-                onDismissRequest = {
-                    isExpandedRoleMenu = false
-                },
-                modifier = Modifier.exposedDropdownSize()
-            ) {
-                roleOptions.forEach { role ->
-                    DropdownMenuItem(
-                        text = {
-                            Text(text = stringResource(id = UserRole.getRes(role)), modifier = Modifier.fillMaxWidth())
-                        },
-                        onClick = {
-                            selectedRole = role
-                            isExpandedRoleMenu = false
-                            updateCanSignUp()
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                }
-            }
-        }
+                .padding(start = 16.dp, end = 16.dp, top = 8.dp),
+            selectedOptionIndex = selectedRole?.let { roleOptions.indexOf(selectedRole) },
+            label = stringResource(id = R.string.prompt_role),
+            canInteract = !screenState.isSigningUp
+        )
+
         Text(
             text = stringResource(id = R.string.action_go_sign_in),
             modifier = Modifier
@@ -183,8 +145,8 @@ fun RegistrationScreen(
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.SemiBold
         )
-        Column(verticalArrangement = Arrangement.Bottom, modifier = Modifier.fillMaxSize()) {
 
+        Column(verticalArrangement = Arrangement.Bottom, modifier = Modifier.fillMaxSize()) {
             Button(
                 onClick = {
                     // selectedRole always not null while canSignUp is true
@@ -202,7 +164,6 @@ fun RegistrationScreen(
                             2000
                         )
                     }
-
             ) {
                 Text(
                     text = stringResource(id = R.string.action_sign_up)

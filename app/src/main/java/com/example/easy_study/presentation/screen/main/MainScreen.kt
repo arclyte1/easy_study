@@ -20,6 +20,7 @@ import com.example.easy_study.presentation.navigation.composable
 import com.example.easy_study.presentation.screen.login.LoginScreen
 import com.example.easy_study.presentation.screen.login.LoginViewModel
 import com.example.easy_study.presentation.screen.registration.RegistrationScreen
+import com.example.easy_study.presentation.screen.registration.RegistrationViewModel
 import com.example.easy_study.presentation.ui.theme.EasyStudyTheme
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -43,7 +44,7 @@ fun MainScreen(mainViewModel: MainViewModel = hiltViewModel()) {
             ) {
                 composable(destination = Destination.LoginScreen) {
                     val viewModel = hiltViewModel<LoginViewModel>()
-                    val state by viewModel.loginState.collectAsState()
+                    val state by viewModel.screenState.collectAsState()
                     LoginScreen(
                         screenState = state,
                         login = viewModel::login,
@@ -53,7 +54,16 @@ fun MainScreen(mainViewModel: MainViewModel = hiltViewModel()) {
                     )
                 }
                 composable(destination = Destination.RegistrationScreen) {
-                    Text("")
+                    val viewModel = hiltViewModel<RegistrationViewModel>()
+                    val state by viewModel.screenState.collectAsState()
+                    RegistrationScreen(
+                        screenState = state,
+                        register = viewModel::register,
+                        navigateBack = viewModel::navigateBack,
+                        validateEmail = viewModel::validateEmail,
+                        validateUsername = viewModel::validateUsername,
+                        validatePassword = viewModel::validatePassword
+                    )
                 }
                 composable(destination = Destination.GroupListScreen) {
                     Text("Group List Screen")

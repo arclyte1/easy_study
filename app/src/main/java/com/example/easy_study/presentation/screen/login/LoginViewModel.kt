@@ -21,14 +21,14 @@ class LoginViewModel @Inject constructor (
     private val loginUseCase: LoginUseCase,
 ) : ViewModel() {
 
-    private val _loginState = MutableStateFlow(LoginState())
-    val loginState: StateFlow<LoginState> = _loginState
+    private val _screenState = MutableStateFlow(LoginState())
+    val screenState: StateFlow<LoginState> = _screenState
 
     fun login(email: String, password: String) {
         loginUseCase(email, password).onEach { result ->
             when(result) {
                 is Resource.Success -> {
-                    _loginState.update {
+                    _screenState.update {
                         it.copy(
                             isLoggingIn = false
                         )
@@ -36,7 +36,7 @@ class LoginViewModel @Inject constructor (
                     navigateToGroupDetails()
                 }
                 is Resource.Error -> {
-                    _loginState.update {
+                    _screenState.update {
                         it.copy(
                             isLoggingIn = false,
                             errorMessage = result.message
@@ -44,7 +44,7 @@ class LoginViewModel @Inject constructor (
                     }
                 }
                 is Resource.Loading -> {
-                    _loginState.update {
+                    _screenState.update {
                         it.copy(
                             isLoggingIn = true
                         )
