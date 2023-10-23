@@ -9,39 +9,66 @@ import com.example.easy_study.data.repository.GroupRepositoryImpl
 import com.example.easy_study.data.Result
 import com.example.easy_study.domain.use_case.AddGroupUseCase
 import com.example.easy_study.domain.use_case.GetGroupsUseCase
+import com.example.easy_study.domain.use_case.GetLoggedInUserUseCase
+import com.example.easy_study.presentation.navigation.AppNavigator
+import com.example.easy_study.presentation.navigation.Destination
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class GroupListViewModel @Inject constructor (
     private val getGroupsUseCase: GetGroupsUseCase,
-    private val addGroupUseCase: AddGroupUseCase
+    private val addGroupUseCase: AddGroupUseCase,
+    private val getLoggedInUserUseCase: GetLoggedInUserUseCase,
+    private val appNavigator: AppNavigator,
 ) : ViewModel() {
 
-    private val _getGroupsResult = MutableLiveData<GetGroupsResult>()
-    val getGroupsResult: LiveData<GetGroupsResult> = _getGroupsResult
+    private val _screenState = MutableStateFlow(GroupListState())
+    val screenState: StateFlow<GroupListState> = _screenState
 
-    private val _gettingGroups = MutableLiveData<Boolean>()
-    val gettingGroups: LiveData<Boolean> = _gettingGroups
+    init {
+        getGroups()
+        getLoggedInUserUseCase()?.let { user ->
+            _screenState.update {
+                it.copy(
+                    userRole = user.role
+                )
+            }
+        }
+    }
 
     fun getGroups() {
         getGroupsUseCase().onEach { result ->
             when(result) {
                 is Resource.Success -> {
-                    _gettingGroups.postValue(false)
-                    _getGroupsResult.postValue(GetGroupsResult(success = result.data))
+                    _screenState.update {
+                        it.copy(
+                            isLoading = false,
+                            groupList = result.data ?: emptyList()
+                        )
+                    }
                 }
                 is Resource.Error -> {
-                    _gettingGroups.postValue(false)
-                    _getGroupsResult.postValue(GetGroupsResult(error = result.message ?: "Unknown error"))
+                    _screenState.update {
+                        it.copy(
+                            isLoading = false,
+                        )
+                    }
                 }
                 is Resource.Loading -> {
-                    _gettingGroups.postValue(true)
+                    _screenState.update {
+                        it.copy(
+                            isLoading = true
+                        )
+                    }
                 }
             }
         }.launchIn(viewModelScope)
@@ -51,18 +78,56 @@ class GroupListViewModel @Inject constructor (
         addGroupUseCase(title, subject).onEach { result ->
             when(result) {
                 is Resource.Success -> {
-                    _gettingGroups.postValue(false)
-                    _getGroupsResult.postValue(GetGroupsResult(success = result.data))
+                    _screenState.update {
+                        it.copy(
+                            isCreatingGroup = false,
+                            groupList = result.data ?: emptyList(),
+                            isGroupCreatingDialogVisible = false,
+                        )
+                    }
                 }
                 is Resource.Error -> {
-                    _gettingGroups.postValue(false)
-                    _getGroupsResult.postValue(GetGroupsResult(error = result.message ?: "Unknown error"))
+                    _screenState.update {
+                        it.copy(
+                            isCreatingGroup = false,
+                            isGroupCreatingDialogVisible = false,
+                        )
+                    }
                 }
                 is Resource.Loading -> {
-                    _gettingGroups.postValue(true)
+                    _screenState.update {
+                        it.copy(
+                            isCreatingGroup = true,
+                        )
+                    }
                 }
             }
         }.launchIn(viewModelScope)
     }
 
+    fun openGroup(groupId: Int) {
+        appNavigator.tryNavigateTo(Destination.LessonListScreen(groupId))
+    }
+
+    fun showGroupCreationDialog() {
+        _screenState.update {
+            it.copy(
+                isGroupCreatingDialogVisible = true
+            )
+        }
+    }
+
+    fun dismissGroupCreationDialog() {
+        if (!_screenState.value.isCreatingGroup) {
+            _screenState.update {
+                it.copy(
+                    isGroupCreatingDialogVisible = false
+                )
+            }
+        }
+    }
+
+    fun isTitleValid(title: String): Boolean {
+        return title.trim().length > 5
+    }
 }

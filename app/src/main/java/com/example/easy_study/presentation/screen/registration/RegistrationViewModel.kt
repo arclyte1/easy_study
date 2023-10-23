@@ -51,6 +51,7 @@ class RegistrationViewModel @Inject constructor (
                             isSigningUp = false
                         )
                     }
+                    Log.e("RegistrationViewModel", result.message.toString())
                 }
                 is Resource.Loading -> {
                     _screenState.update {

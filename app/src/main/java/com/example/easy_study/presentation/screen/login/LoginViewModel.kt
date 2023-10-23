@@ -1,5 +1,6 @@
 package com.example.easy_study.presentation.screen.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
 import androidx.lifecycle.viewModelScope
@@ -42,6 +43,7 @@ class LoginViewModel @Inject constructor (
                             errorMessage = result.message
                         )
                     }
+                    Log.e("LoginViewModel", result.message.toString())
                 }
                 is Resource.Loading -> {
                     _screenState.update {

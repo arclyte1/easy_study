@@ -17,6 +17,8 @@ import com.example.easy_study.presentation.navigation.Destination
 import com.example.easy_study.presentation.navigation.NavHost
 import com.example.easy_study.presentation.navigation.NavigationIntent
 import com.example.easy_study.presentation.navigation.composable
+import com.example.easy_study.presentation.screen.group_list.GroupListScreen
+import com.example.easy_study.presentation.screen.group_list.GroupListViewModel
 import com.example.easy_study.presentation.screen.login.LoginScreen
 import com.example.easy_study.presentation.screen.login.LoginViewModel
 import com.example.easy_study.presentation.screen.registration.RegistrationScreen
@@ -66,7 +68,19 @@ fun MainScreen(mainViewModel: MainViewModel = hiltViewModel()) {
                     )
                 }
                 composable(destination = Destination.GroupListScreen) {
-                    Text("Group List Screen")
+                    val viewModel = hiltViewModel<GroupListViewModel>()
+                    val state by viewModel.screenState.collectAsState()
+                    GroupListScreen(
+                        screenState = state,
+                        openGroup = viewModel::openGroup,
+                        createGroup = viewModel::addGroup,
+                        validateTitle = viewModel::isTitleValid,
+                        showGroupCreationDialog = viewModel::showGroupCreationDialog,
+                        dismissGroupCreationDialog = viewModel::dismissGroupCreationDialog
+                    )
+                }
+                composable(destination = Destination.LessonListScreen) {
+                    Text("Lesson list")
                 }
             }
         }

@@ -66,7 +66,7 @@ class LoginRepositoryImpl @Inject constructor (
         return user
     }
 
-    override suspend fun getLoggedInUser(): LoggedInUser? {
+    override fun getLoggedInUser(): LoggedInUser? {
         return user
     }
 

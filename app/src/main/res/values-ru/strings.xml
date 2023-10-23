@@ -49,4 +49,7 @@
     <string name="add_teacher">Добавить преподавателя</string>
     <string name="my_groups">Мои группы</string>
     <string name="empty_string" />
+    <string name="invalid_title">Название должно быть более 5 символов</string>
+    <string name="create">Создать</string>
+    <string name="group_creating">Создание группы</string>
 </resources>

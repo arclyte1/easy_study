@@ -13,5 +13,5 @@ interface LoginRepository {
                  role: UserRole,
                  password: String): LoggedInUser
 
-    suspend fun getLoggedInUser(): LoggedInUser?
+    fun getLoggedInUser(): LoggedInUser?
 }

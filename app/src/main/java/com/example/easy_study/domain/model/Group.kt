@@ -4,6 +4,6 @@ data class Group(
     val id: Long,
     val group_title: String,
     val subject_title: String,
-    val students: List<User>,
-    val teachers: List<User>,
+    val students: List<User> = emptyList(),
+    val teachers: List<User> = emptyList(),
 )
