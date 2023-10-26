@@ -105,8 +105,8 @@ class GroupListViewModel @Inject constructor (
         }.launchIn(viewModelScope)
     }
 
-    fun openGroup(groupId: Int) {
-        appNavigator.tryNavigateTo(Destination.LessonListScreen(groupId))
+    fun openGroup(groupId: Long, groupTitle: String) {
+        appNavigator.tryNavigateTo(Destination.LessonListScreen(groupId, groupTitle))
     }
 
     fun showGroupCreationDialog() {

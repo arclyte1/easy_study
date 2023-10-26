@@ -25,11 +25,13 @@ sealed class Destination(protected val route: String, vararg params: String) {
         )
     }
 
-    object LessonListScreen : Destination("lesson_list", "groupId") {
+    object LessonListScreen : Destination("lesson_list", "groupId", "groupTitle") {
         const val GROUP_ID_KEY = "groupId"
+        const val GROUP_TITLE_KEY = "groupTitle"
 
-        operator fun invoke(groupId: Int): String = route.appendParams(
-            GROUP_ID_KEY to groupId
+        operator fun invoke(groupId: Long, groupTitle: String): String = route.appendParams(
+            GROUP_ID_KEY to groupId,
+            GROUP_TITLE_KEY to groupTitle
         )
     }
 

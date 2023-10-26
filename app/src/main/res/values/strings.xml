@@ -51,6 +51,8 @@
     <string name="invalid_title">Title must be >5 characters</string>
     <string name="create">Create</string>
     <string name="group_creating">Group creating</string>
+    <string name="lesson_creating">Lesson creating</string>
+    <string name="lessons">Lessons</string>
 
 
 </resources>
